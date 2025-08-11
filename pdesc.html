@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Patient Dashboard</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      min-height: 100vh;
+      background: url('medicine.jpg') no-repeat center center/cover;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      padding: 40px 20px;
+      box-sizing: border-box;
+    }
+    .container {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 12px;
+      padding: 30px 40px;
+      max-width: 900px;
+      width: 100%;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+      color: #4CAF50;
+    }
+    .btn-group {
+      display: flex;
+      justify-content: center;
+      margin-bottom: 25px;
+    }
+    .btn-group button {
+      flex: 1;
+      padding: 10px;
+      margin: 0 5px;
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      font-weight: normal;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+    .btn-group button.active {
+      font-weight: bold;
+      text-decoration: underline;
+    }
+    .btn-group button:hover {
+      transform: scale(1.03);
+    }
+    section {
+      margin-bottom: 40px;
+    }
+    h2 {
+      color: #4CAF50;
+      margin-bottom: 15px;
+    }
+    label {
+      display: block;
+      margin: 10px 0 5px;
+      font-weight: bold;
+      color: #333;
+    }
+    input, textarea, button {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      font-size: 14px;
+      box-sizing: border-box;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+      color: #333;
+    }
+    th, td {
+      border: 1px solid #ddd;
+      padding: 10px;
+      text-align: left;
+    }
+    th {
+      background-color: #4CAF50;
+      color: white;
+    }
+    tbody tr:nth-child(even) {
+      background-color: #f9f9f9;
+    }
+    tbody tr:hover {
+      background-color: #e0f7e9;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Patient Dashboard</h1>
+
+    <div class="btn-group">
+      <button class="active" onclick="showSection('appointment', this)">Book Appointment</button>
+      <button onclick="showSection('records', this)">Medical Records</button>
+    </div>
+
+    <section id="appointment">
+      <h2>Book an Appointment</h2>
+      <form onsubmit="alert('Appointment booked! (Demo)'); return false;">
+        <label for="app-date">Date</label>
+        <input type="date" id="app-date" required>
+
+        <label for="app-time">Time</label>
+        <input type="time" id="app-time" required>
+
+        <label for="reason">Reason for Appointment</label>
+        <textarea id="reason" rows="3" placeholder="Describe your reason..." required></textarea>
+
+        <button type="submit">Book Appointment</button>
+      </form>
+    </section>
+
+    <section id="records" style="display:none;">
+      <h2>Your Medical Records</h2>
+      <table>
+        <thead>
+          <tr>
+            <th>Date</th>
+            <th>Diagnosis</th>
+            <th>Prescription</th>
+            <th>Doctor's Notes</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>2025-07-20</td>
+            <td>Allergy</td>
+            <td>Antihistamines</td>
+            <td>Take medication twice daily</td>
+          </tr>
+          <tr>
+            <td>2025-06-10</td>
+            <td>Flu</td>
+            <td>Rest and fluids</td>
+            <td>Follow up if symptoms worsen</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+  </div>
+
+  <script>
+    function showSection(section, btn) {
+      document.getElementById('appointment').style.display = section === 'appointment' ? 'block' : 'none';
+      document.getElementById('records').style.display = section === 'records' ? 'block' : 'none';
+
+      document.querySelectorAll('.btn-group button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    }
+  </script>
+</body>
+</html>

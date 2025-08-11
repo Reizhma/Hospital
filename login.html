@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Login Choice</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background: url('medicine.jpg') no-repeat center center/cover;
+    }
+    h1 {
+      color: white;
+      text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
+      margin-bottom: 30px;
+    }
+    .container {
+      display: flex;
+      gap: 150px;
+      background: rgba(255, 255, 255, 0.8);
+      padding: 40px;
+      border-radius: 10px;
+    }
+    .option {
+      text-align: center;
+    }
+    .option img {
+      width: 150px;
+      height: 150px;
+      border-radius: 50%;
+      object-fit: cover;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.2);
+    }
+    .option button {
+      margin-top: 15px;
+      padding: 10px 25px;
+      font-size: 16px;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      background-color: #4CAF50;
+      color: white;
+    }
+    .option button:hover {
+      background-color: #45a049;
+    }
+  </style>
+</head>
+<body>
+  <h1>LOGIN</h1>
+  <div class="container">
+    <div class="option">
+      <img src="doctor.jpg" alt="Doctor">
+      <br>
+      <button onclick="location.href='doctor-login.html'">Doctor Login</button>
+    </div>
+    <div class="option">
+      <img src="patient.jpg" alt="Patient">
+      <br>
+      <button onclick="location.href='patient-login.html'">Patient Login</button>
+    </div>
+  </div>
+</body>
+</html>
